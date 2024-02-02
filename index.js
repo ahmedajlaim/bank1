@@ -9,52 +9,21 @@ function login (){
     }
 }
 
-// js code for calculation
-
-// let deposit = document.getElementById("deposit")
-// let withdraw = document.getElementById("withdraw")
-// let totalbalance = document.getElementById("totalbalance")
-// let depositInput = document.getElementById("depositInput")
-// let withdrawInput = document.getElementById("withdrawInput")
-// function depositButton (){
-//     let depositInput = document.getElementById("depositInput").value
-//     let deposit = document.getElementById("deposit").innerText=depositInput
-//     let a = parseInt(totalbalance)+parseInt(deposit)
-//     totalbalance.innerText = a
-    
-// }
-// function withdrawButton (){
-//     let withdrawInput = document.getElementById("withdrawInput").value
-//     let withdraw = document.getElementById("withdraw").innerText=withdrawInput
-//     let b = parseInt(totalbalance)+parseInt(withdraw)
-//     totalbalance.innerText = b
-// }
-
-let depositDisplay = document.getElementById("deposit");
-let withdrawDisplay = document.getElementById("withdraw"); 
-let totalBalanceDisplay = document.getElementById("totalbalance");
+let deposit = document.getElementById("deposit");
+let withdraw = document.getElementById("withdraw"); 
+let totalBalance = document.getElementById("totalbalance");
 let depositInput = document.getElementById("depositInput");
 let withdrawInput = document.getElementById("withdrawInput");
 
-function depositButton() {
-    let depositAmount = parseFloat(depositInput.value);
-    let currentDeposit = parseFloat(depositDisplay.innerText.replace("$", ""));
-    let currentBalance = parseFloat(totalBalanceDisplay.innerText.replace("$", ""));
-    depositDisplay.innerText = "$" + (currentDeposit + depositAmount).toFixed(2);
-    totalBalanceDisplay.innerText = "$" + (currentBalance + depositAmount).toFixed(2);
-    depositInput.value = "";
+function depositButton(){
+    let depositInput1 = parseFloat(depositInput.value)
+    deposit.innerText = depositInput1 +  parseFloat (deposit.innerText)
+    totalBalance.innerText = depositInput1 + parseFloat(totalBalance.innerText) 
+    depositInput.value='0'
 }
-
-function withdrawButton() {
-    let withdrawAmount = parseFloat(withdrawInput.value);
-    let currentWithdraw = parseFloat(withdrawDisplay.innerText.replace("$", ""));
-    let currentBalance = parseFloat(totalBalanceDisplay.innerText.replace("$", ""));
-
-    withdrawDisplay.innerText = "$" + (currentWithdraw + withdrawAmount).toFixed(2);
-    totalBalanceDisplay.innerText = "$" + (currentBalance - withdrawAmount).toFixed(2);
-    withdrawInput.value = "";
-}
-
-
-
-
+function withdrawButton(){
+    let withdrawInput1 = parseFloat(withdrawInput.value);
+    withdraw.innerText = withdrawInput1 + parseFloat(withdraw.innerText);
+    totalBalance.innerText = parseFloat(totalBalance.innerText) - withdrawInput1;
+    withdrawInput.value = '0';
+} 
